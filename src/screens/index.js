@@ -1,3 +1,4 @@
-import IntroContainer from "./IntroContainer";
+import IntroContainer from "../screens/intro";
+import SignUpContainer from "../screens/signup";
 
-export { IntroContainer };
+export { IntroContainer, SignUpContainer };

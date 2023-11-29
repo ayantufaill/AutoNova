@@ -2,6 +2,7 @@ import React from "react";
 
 import { SafeAreaView, StyleSheet, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { ScaledSheet } from "react-native-size-matters";
 
 import { colors } from "./src/utils/theme";
 import Routes from "./src/utils/Routes";
@@ -19,7 +20,7 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container: {
     flex: 1,
     color: colors.whiteColor,
