@@ -2,14 +2,18 @@ import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-import IntroContainer from "../screens/intro/IntroContainer";
-import SignUpContainer from "../screens/signup/SignUpContainer";
+import {
+  IntroContainer,
+  SignUpContainer,
+  SignInContainer,
+  ForgotPasswordContainer,
+} from "../screens";
 
 const Stack = createStackNavigator();
 
 const Auth = () => {
   return (
-    <Stack.Navigator initialRouteName="intro">
+    <Stack.Navigator initialRouteName="signUp">
       <Stack.Screen
         name="intro"
         component={IntroContainer}
@@ -18,6 +22,16 @@ const Auth = () => {
       <Stack.Screen
         name="signUp"
         component={SignUpContainer}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="signIn"
+        component={SignInContainer}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="forgotPassword"
+        component={ForgotPasswordContainer}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

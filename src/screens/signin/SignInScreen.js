@@ -1,7 +1,13 @@
 import React from "react";
 
 import { ScaledSheet } from "react-native-size-matters";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Touchable,
+} from "react-native";
 
 import {
   AuthInput,
@@ -12,25 +18,22 @@ import {
 import { colors } from "../../utils/theme";
 
 import UserIcon from "../../assets/svgs/UserIcon";
-import EmailIcon from "../../assets/svgs/EmailIcon";
 
-const SignUpScreen = ({ navigate }) => {
+const SignInScreen = ({ navigate }) => {
   return (
     <View style={styles.container}>
       <AutoNovaHeader />
-      <Text style={styles.title}>Sign Up for an Account</Text>
+      <Text style={styles.title}>Sign In to your Account</Text>
+      <Text style={styles.subTitle}>
+        Welcome back! please enter your detail
+      </Text>
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={styles.scrollWrapper}>
         <AuthInput
-          placeholder="Full Name"
-          inputMode="text"
-          leftIcon={<UserIcon />}
-        />
-        <AuthInput
           placeholder="Email"
           inputMode="email"
-          leftIcon={<EmailIcon />}
+          leftIcon={<UserIcon />}
         />
         <AuthInput
           placeholder="Password"
@@ -38,27 +41,22 @@ const SignUpScreen = ({ navigate }) => {
           secureTextEntry={true}
           leftIcon={<UserIcon />}
         />
-        <AuthInput
-          placeholder="Confirm Password"
-          inputMode="text"
-          secureTextEntry={true}
-          leftIcon={<UserIcon />}
-        />
-        <View style={styles.checkboxWrapper}>
-          <Text>#</Text>
-          <Text style={styles.description}>
-            By creating an account means you agree to the
-            <Text style={styles.spanText}> Terms & Conditions</Text> and our
-            <Text style={styles.spanText}> Privacy Policy</Text>
-          </Text>
-        </View>
-        <View style={styles.buttonWrapper}>
-          <GlobalButton
-            title="Sign Up"
+
+        <View style={styles.forgotPasswordWrapper}>
+          <View style={styles.rememberMeWrapper}>
+            <Text>#</Text>
+            <Text style={styles.rememberMe}>Remember me</Text>
+          </View>
+          <TouchableOpacity
             onPress={() => {
-              navigate("signIn");
-            }}
-          />
+              navigate("forgotPassword");
+            }}>
+            <Text style={styles.forgotPassword}>Forgot Password</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.buttonWrapper}>
+          <GlobalButton title="Sign In" />
         </View>
         <View style={styles.borderWrapper}>
           <View style={styles.horizontalBorder} />
@@ -68,16 +66,16 @@ const SignUpScreen = ({ navigate }) => {
         <View style={styles.socialButtonWrapper}>
           <SocialButton title="Google" />
         </View>
-        <View style={styles.alreadyAccountWrapper}>
-          <Text style={styles.alreadyAccount}>Already have an account?</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigate("signIn");
-            }}>
-            <Text style={styles.forLgin}>Log In</Text>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
+      <View style={styles.alreadyAccountWrapper}>
+        <Text style={styles.alreadyAccount}>Don’t have an account?</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigate("signUp");
+          }}>
+          <Text style={styles.forLgin}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -100,22 +98,13 @@ const styles = ScaledSheet.create({
     marginTop: "25@s",
     color: colors.lightBlackColor,
   },
-  checkboxWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: "7@s",
-  },
-  description: {
-    fontSize: "12@s",
-    lineHeight: "18@s",
+  subTitle: {
+    fontSize: "14@s",
+    lineHeight: "22@s",
     fontWeight: "400",
     fontStyle: "normal",
-    marginTop: "20@s",
+    marginTop: "8@s",
     color: colors.lightGreyColor,
-  },
-  spanText: {
-    fontWeight: "bold",
-    color: colors.lightBlackColor,
   },
   buttonWrapper: {
     marginVertical: "30@s",
@@ -140,7 +129,7 @@ const styles = ScaledSheet.create({
     color: colors.steelGreyColor,
   },
   socialButtonWrapper: {
-    marginBottom: "50@s",
+    marginBottom: "10@s",
     padding: "7@s",
   },
   alreadyAccountWrapper: {
@@ -148,6 +137,10 @@ const styles = ScaledSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: "4@s",
+    position: "absolute",
+    bottom: "15@s",
+    right: "0@s",
+    left: "0@s",
   },
   alreadyAccount: {
     fontSize: "14@s",
@@ -163,6 +156,31 @@ const styles = ScaledSheet.create({
     fontStyle: "normal",
     color: colors.blueColor,
   },
+  forgotPasswordWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: "10@s",
+  },
+  rememberMeWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "7@s",
+  },
+  rememberMe: {
+    fontSize: "12@s",
+    lineHeight: "19@s",
+    fontWeight: "400",
+    fontStyle: "normal",
+    color: colors.lightBlackColor,
+  },
+  forgotPassword: {
+    fontSize: "12@s",
+    lineHeight: "19@s",
+    fontWeight: "700",
+    fontStyle: "normal",
+    color: colors.blueColor,
+  },
 });
 
-export default SignUpScreen;
+export default SignInScreen;

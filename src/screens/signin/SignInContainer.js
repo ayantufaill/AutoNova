@@ -2,15 +2,15 @@ import React from "react";
 
 import { useNavigation } from "@react-navigation/native";
 
-import SignUpScreen from "./SignUpScreen";
+import SignInScreen from "./SignInScreen";
 
-const SignUpContainer = () => {
+const SignInContainer = () => {
   const navigation = useNavigation();
   const navigate = (route) => {
     navigation.navigate(route);
   };
 
-  return <SignUpScreen navigate={navigate} />;
+  return <SignInScreen navigate={navigate} />;
 };
 
-export default SignUpContainer;
+export default SignInContainer;
