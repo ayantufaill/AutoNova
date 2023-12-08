@@ -7,13 +7,16 @@ import {
   SignUpContainer,
   SignInContainer,
   ForgotPasswordContainer,
+  AddVehicleContainer,
+  SelectVehicleBrandContainer,
+  SelectVehicleModelContainer,
 } from "../screens";
 
 const Stack = createStackNavigator();
 
 const Auth = () => {
   return (
-    <Stack.Navigator initialRouteName="signUp">
+    <Stack.Navigator initialRouteName="selectVehicleModel">
       <Stack.Screen
         name="intro"
         component={IntroContainer}
@@ -32,6 +35,21 @@ const Auth = () => {
       <Stack.Screen
         name="forgotPassword"
         component={ForgotPasswordContainer}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="addVehicle"
+        component={AddVehicleContainer}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="selectVehicleBrand"
+        component={SelectVehicleBrandContainer}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="selectVehicleModel"
+        component={SelectVehicleModelContainer}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

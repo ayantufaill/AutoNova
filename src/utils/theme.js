@@ -7,7 +7,11 @@ export const colors = {
   greyColor: "#E2E8F0",
   darkGreyColor: "#94A3B8",
   lightGreyColor: "#484F61",
+  extraLightGreyColor: "#8D8D8D",
   steelGreyColor: "#64748B",
+  offWhiteColor: "#F5F5F5",
+
+  opacityColor: "rgba(46, 46, 48, 0.17)",
 };
 
 export const fonts = {
