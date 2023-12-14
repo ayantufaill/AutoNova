@@ -10,15 +10,26 @@ import {
 } from "../../components";
 import { colors } from "../../utils/theme";
 
-const SelectVehicleBrandScreen = ({ vehicleBrands }) => {
+import { SearchIcon } from "../../assets/svgs";
+
+const SelectVehicleBrandScreen = ({ vehicleBrands, navigate }) => {
   return (
     <View style={styles.container}>
       <BackArrowHeader title="Select Brand" />
 
-      <SearchInput />
+      <SearchInput
+        placeholder="Serach"
+        icon={<SearchIcon />}
+        inputMode="text"
+      />
       <FlatList
         data={vehicleBrands}
-        renderItem={({ item }) => <SelectArrowButton title={item.title} />}
+        renderItem={({ item }) => (
+          <SelectArrowButton
+            title={item.title}
+            onPress={() => navigate("selectVehicleModel")}
+          />
+        )}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.flatlist}
         showsVerticalScrollIndicator={false}

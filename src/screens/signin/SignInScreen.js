@@ -56,7 +56,10 @@ const SignInScreen = ({ navigate }) => {
         </View>
 
         <View style={styles.buttonWrapper}>
-          <GlobalButton title="Sign In" />
+          <GlobalButton
+            title="Sign In"
+            onPress={() => navigate("addVehicle")}
+          />
         </View>
         <View style={styles.borderWrapper}>
           <View style={styles.horizontalBorder} />

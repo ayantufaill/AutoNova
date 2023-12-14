@@ -7,9 +7,9 @@ import { colors } from "../../utils/theme";
 
 import { RightArrow } from "../../assets/svgs";
 
-const SelectArrowButton = ({ title }) => {
+const SelectArrowButton = ({ title, onPress }) => {
   return (
-    <TouchableOpacity style={styles.buttonWrapper}>
+    <TouchableOpacity style={styles.buttonWrapper} onPress={onPress}>
       <Text style={styles.buttonTitle}>{title}</Text>
       <RightArrow />
     </TouchableOpacity>

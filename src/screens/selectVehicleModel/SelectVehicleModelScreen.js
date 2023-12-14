@@ -6,13 +6,18 @@ import { View, FlatList } from "react-native";
 import { BackArrowHeader, SelectArrowButton } from "../../components";
 import { colors } from "../../utils/theme";
 
-const SelectVehicleModelScreen = ({ vehicleModels }) => {
+const SelectVehicleModelScreen = ({ vehicleModels, navigate }) => {
   return (
     <View style={styles.container}>
       <BackArrowHeader title="Select Model" />
       <FlatList
         data={vehicleModels}
-        renderItem={({ item }) => <SelectArrowButton title={item.title} />}
+        renderItem={({ item }) => (
+          <SelectArrowButton
+            title={item.title}
+            onPress={() => navigate("vehicleFuelCapacity")}
+          />
+        )}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.flatlist}
         showsVerticalScrollIndicator={false}

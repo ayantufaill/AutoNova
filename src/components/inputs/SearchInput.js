@@ -5,17 +5,21 @@ import { ScaledSheet } from "react-native-size-matters";
 
 import { colors } from "../../utils/theme";
 
-import { SearchIcon } from "../../assets/svgs";
-
-const SearchInput = () => {
+const SearchInput = ({
+  customStyle,
+  placeholder,
+  icon,
+  inputMode,
+  placeholderTextColor = colors.extraLightGreyColor,
+}) => {
   return (
-    <View style={styles.inputWrapper}>
-      <SearchIcon />
+    <View style={[styles.inputWrapper, { ...customStyle }]}>
+      {icon}
       <TextInput
         style={styles.authInput}
-        placeholder="Search"
-        placeholderTextColor={colors.extraLightGreyColor}
-        inputMode="text"
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
+        inputMode={inputMode}
       />
     </View>
   );

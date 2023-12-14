@@ -10,6 +10,7 @@ export const colors = {
   extraLightGreyColor: "#8D8D8D",
   steelGreyColor: "#64748B",
   offWhiteColor: "#F5F5F5",
+  pinkColor: "#F2BEFC",
 
   opacityColor: "rgba(46, 46, 48, 0.17)",
 };

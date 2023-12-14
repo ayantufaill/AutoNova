@@ -1,11 +1,22 @@
 import React from "react";
 
-import SelectVehicleModelScreen from "./SelectVehicleModelScreen";
+import { useNavigation } from "@react-navigation/native";
 
+import SelectVehicleModelScreen from "./SelectVehicleModelScreen";
 import { vehicleModels } from "../../utils/mock";
 
 const SelectVehicleModelContainer = () => {
-  return <SelectVehicleModelScreen vehicleModels={vehicleModels} />;
+  const navigation = useNavigation();
+  const navigate = (route) => {
+    navigation.navigate(route);
+  };
+
+  return (
+    <SelectVehicleModelScreen
+      vehicleModels={vehicleModels}
+      navigate={navigate}
+    />
+  );
 };
 
 export default SelectVehicleModelContainer;

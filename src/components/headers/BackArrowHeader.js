@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
 
@@ -8,9 +9,10 @@ import { colors } from "../../utils/theme";
 import { BackArrow } from "../../assets/svgs";
 
 const BackArrowHeader = ({ title }) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.buttonWrapper}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <BackArrow />
       </TouchableOpacity>
       <Text style={styles.buttonTitle}>{title}</Text>

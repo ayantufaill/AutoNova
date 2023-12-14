@@ -8,7 +8,7 @@ import { GlobalButton } from "../../components";
 
 import { VehicleLogo } from "../../assets/svgs";
 
-const AddVehicleScreen = () => {
+const AddVehicleScreen = ({ navigate }) => {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -21,7 +21,10 @@ const AddVehicleScreen = () => {
           You vehicle is used to determine compatible Charging stations.
         </Text>
         <VehicleLogo />
-        <GlobalButton title="Add Vehicle" />
+        <GlobalButton
+          title="Add Vehicle"
+          onPress={() => navigate("selectVehicleBrand")}
+        />
       </ScrollView>
     </View>
   );

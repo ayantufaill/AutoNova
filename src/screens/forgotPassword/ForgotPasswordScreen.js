@@ -13,7 +13,13 @@ import { colors } from "../../utils/theme";
 
 import UserIcon from "../../assets/svgs/UserIcon";
 
-const ForgotPasswordScreen = ({ isModalVisible, toggleModal, navigation }) => {
+const ForgotPasswordScreen = ({
+  isModalVisible,
+  toggleModal,
+  navigation,
+  isLogin,
+  navigate,
+}) => {
   return (
     <View style={styles.container}>
       <AutoNovaHeader />
@@ -37,7 +43,7 @@ const ForgotPasswordScreen = ({ isModalVisible, toggleModal, navigation }) => {
           <Text style={styles.sigIn}>Back to Sign In</Text>
         </TouchableOpacity>
         <ResetPasswordModal
-          handleClick={toggleModal}
+          handleClick={isLogin ? () => navigate("signIn") : toggleModal}
           isModalVisible={isModalVisible}
           toggleModal={toggleModal}
         />

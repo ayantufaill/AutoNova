@@ -6,6 +6,7 @@ import ResetPasswordModal from "./modals/ResetPasswordModal";
 import BackArrowHeader from "./headers/BackArrowHeader";
 import SearchInput from "./inputs/SearchInput";
 import SelectArrowButton from "./buttons/SelectArrowButton";
+import VehicleDetails from "./vehicles/VehicleDetails";
 
 export {
   AuthInput,
@@ -16,4 +17,5 @@ export {
   BackArrowHeader,
   SearchInput,
   SelectArrowButton,
+  VehicleDetails,
 };

@@ -2,15 +2,15 @@ import React from "react";
 
 import { useNavigation } from "@react-navigation/native";
 
-import AddVehicleScreen from "./AddVehicleScreen";
+import HomeScreen from "./HomeScreen";
 
-const AddVehicleContainer = () => {
+const HomeContainer = () => {
   const navigation = useNavigation();
   const navigate = (route) => {
     navigation.navigate(route);
   };
 
-  return <AddVehicleScreen navigate={navigate} />;
+  return <HomeScreen navigate={navigate} />;
 };
 
-export default AddVehicleContainer;
+export default HomeContainer;
