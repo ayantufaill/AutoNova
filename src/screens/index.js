@@ -8,7 +8,13 @@ import SelectVehicleModelContainer from "./selectVehicleModel/SelectVehicleModel
 import VehicleFuelCapacityContainer from "./vehicleFuelCapacity/VehicleFuelCapacityContainer";
 import VehicleDetailsContainer from "./vehicleDetails/VehicleDetailsContainer";
 import HomeContainer from "./home/HomeContainer";
-
+import TypeOfExpenseContainer from "./typeofexpenses/TypeOfExpenseContainer";
+import ServiceContainer from "./service/ServiceContainer";
+import ReportContainer from "./reports/ReportContainer";
+import GasStationContainer from "./gasstation/GasStationContainer";
+import ReminderContainer from "./reminder/ReminderContainer";
+import NameOfExpensesContainer from "./nameOfExpenses/NameOfExpensesContainer";
+import MoreOptionsContainer from "./moreOptions/MoreOptionsContainer";
 export {
   IntroContainer,
   SignUpContainer,
@@ -20,4 +26,12 @@ export {
   VehicleFuelCapacityContainer,
   VehicleDetailsContainer,
   HomeContainer,
+  TypeOfExpenseContainer,
+  ServiceContainer,
+  ReportContainer,
+  GasStationContainer,
+  ReminderContainer,
+  NameOfExpensesContainer,
+  MoreOptionsContainer
+  
 };

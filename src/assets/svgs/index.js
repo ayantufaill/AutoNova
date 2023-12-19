@@ -24,7 +24,27 @@ import ServicesIcon from "./ServicesIcon";
 import DistanceSmallIcon from "./DistanceSmallIcon";
 import ClockIcon from "./ClockIcon";
 import PickExpenseIcon from "./PickExpenseIcon";
-
+import ReminderBills from "./ReminderBills";
+import Calender from "./Calender";
+import DownArrow from "./DownArrow";
+import MeterOdo from "./MeterOdo";
+import SettingTool from "./SettingTool";
+import LocationPointer from "./LocationPointer";
+import ProfileDriver from "./ProfileDriver";
+import AddIcon from "./AddIcon";
+import BackArrowWhite from "./BackArrowWhite";
+import MultipleUserIcon from "./MultipleUserIcon";
+import VehicleOrUserIcon from "./VehicleOrUserIcon";
+import ExpenseMoneyIcon from "./ExpenseMoneyIcon";
+import WalletIcon from "./WalletIcon";
+import PaymentMoneyIcon from "./PaymentMoneyIcon";
+import ReasonIcon from "./ReasonIcon";
+import RefuelIcon from "./RefuelIcon";
+import MyPlaceIcon from "./MyPlaceIcon";
+import CalculationIcon from "./CalculationIcon";
+import LanguageIcon from "./LanguageIcon";
+import SettingIcon from "./SettingIcon";
+import AboutIcon from "./AboutIcon";
 export {
   UserIcon,
   GoogleIcon,
@@ -52,4 +72,25 @@ export {
   DistanceSmallIcon,
   ClockIcon,
   PickExpenseIcon,
+  ReminderBills,
+  Calender,
+  DownArrow,
+  MeterOdo,
+  SettingTool,
+  LocationPointer,
+  ProfileDriver,
+  AddIcon,
+  BackArrowWhite,
+  MultipleUserIcon,
+  VehicleOrUserIcon,
+  ExpenseMoneyIcon,
+  WalletIcon,
+  PaymentMoneyIcon,
+  ReasonIcon,
+  RefuelIcon,
+  MyPlaceIcon,
+  CalculationIcon,
+  LanguageIcon,
+  SettingIcon,
+  AboutIcon
 };

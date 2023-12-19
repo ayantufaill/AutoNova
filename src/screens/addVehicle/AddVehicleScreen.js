@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ScaledSheet } from "react-native-size-matters";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView,StatusBar } from "react-native";
 
 import { colors } from "../../utils/theme";
 import { GlobalButton } from "../../components";
@@ -14,6 +14,10 @@ const AddVehicleScreen = ({ navigate }) => {
       <ScrollView
         style={styles.scrolWrapper}
         showsVerticalScrollIndicator={false}>
+            <StatusBar
+        backgroundColor={colors.whiteColor}
+        barStyle="dark-content"
+      />
         <Text style={styles.title}>
           Personalize your experience by adding a vehicle
         </Text>

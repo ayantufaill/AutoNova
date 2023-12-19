@@ -5,12 +5,13 @@ import { ScaledSheet } from "react-native-size-matters";
 
 import { colors } from "../../utils/theme";
 
-const GlobalButton = ({ title, customClass, onPress }) => {
+const GlobalButton = ({ title, customClass,customTextStyle, onPress }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[styles.buttonWrapper, { ...customClass }]}>
-      <Text style={styles.buttonTitle}>{title}</Text>
+          <Text style={[styles.buttonTitle, { ...customTextStyle }]}>{title}</Text>
+
     </TouchableOpacity>
   );
 };

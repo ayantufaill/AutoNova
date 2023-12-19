@@ -1,14 +1,16 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { ScaledSheet } from "react-native-size-matters";
+import { signIn } from "../../actions/signInActions";
 import {
   View,
   Text,
   ScrollView,
   TouchableOpacity,
   Touchable,
+  ActivityIndicator
 } from "react-native";
-
+import Toast from 'react-native-toast-message'
 import {
   AuthInput,
   GlobalButton,
@@ -20,6 +22,55 @@ import { colors } from "../../utils/theme";
 import UserIcon from "../../assets/svgs/UserIcon";
 
 const SignInScreen = ({ navigate }) => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.signIn.loading);
+  const error = useSelector((state) => state.signIn.error);
+  const success = useSelector((state) => state.signIn.success);
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
+  useEffect(() => {
+    if (success) {
+      Toast.show({
+        type: 'success',
+        position: 'bottom',
+        text1: 'SignIn successfully',
+        visibilityTime: 1000, // 3 seconds
+        autoHide: true,
+      });
+      navigate('addVehicle');
+    }
+  }, [success, navigate]);
+
+  const handleSignIn = () => {
+    if (!email || !password) {
+      Toast.show({
+        type: 'error',
+        position: 'bottom',
+        text1: 'Please fill all the filleds',
+        visibilityTime: 1000, // 3 seconds
+        autoHide: true,
+      });
+      return;
+    }
+    if (password.length > 8) {
+      Toast.show({
+        type: 'error',
+        position: 'bottom',
+        text1: 'Password:',
+        text2: 'you can not add more then 8 letters',
+        visibilityTime: 3000, 
+        autoHide: true,
+      });
+      return;
+    }
+
+    const userData = { email, password };
+    dispatch(signIn(userData));
+  
+  };
+
+
+  
   return (
     <View style={styles.container}>
       <AutoNovaHeader />
@@ -34,12 +85,14 @@ const SignInScreen = ({ navigate }) => {
           placeholder="Email"
           inputMode="email"
           leftIcon={<UserIcon />}
+          onChangeText={(text) => setEmail(text)}
         />
         <AuthInput
           placeholder="Password"
           inputMode="text"
-          secureTextEntry={true}
+          secureTextEntry={true} 
           leftIcon={<UserIcon />}
+          onChangeText={(text) => setPassword(text)}
         />
 
         <View style={styles.forgotPasswordWrapper}>
@@ -56,10 +109,16 @@ const SignInScreen = ({ navigate }) => {
         </View>
 
         <View style={styles.buttonWrapper}>
+        {loading ? (
+            <ActivityIndicator size="large" color={colors.blueColor} />
+          ) : (
           <GlobalButton
             title="Sign In"
-            onPress={() => navigate("addVehicle")}
+            // onPress={() => navigate("addVehicle")}
+            onPress={()=>handleSignIn(navigate)}
           />
+          )}
+         
         </View>
         <View style={styles.borderWrapper}>
           <View style={styles.horizontalBorder} />
