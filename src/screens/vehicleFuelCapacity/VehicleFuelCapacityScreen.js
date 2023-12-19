@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ScaledSheet } from "react-native-size-matters";
 import { View, Text, ScrollView, Image } from "react-native";
@@ -7,8 +7,10 @@ import { colors } from "../../utils/theme";
 import { GlobalButton, SearchInput } from "../../components";
 
 import fuelLogo from "../../assets/pngs/fuel_logo.png";
+import { Helpers } from "../../BaseUrl/Helper";
 
 const VehicleFuelCapacityScreen = ({ navigate }) => {
+  const [fuelCapacity, setFuelCapacity] = useState('')
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -24,11 +26,16 @@ const VehicleFuelCapacityScreen = ({ navigate }) => {
           placeholder="Fuel Capacity (L)"
           inputMode="numeric"
           placeholderTextColor={colors.darkGreyColor}
+          onChangeText={(text)=>setFuelCapacity(text)}
         />
         <View style={styles.buttonWrapper}>
           <GlobalButton
             title="Continue"
-            onPress={() => navigate("vehicleDetails")}
+            onPress={() =>{
+              Helpers.FuelCapacity = fuelCapacity
+              console.log(Helpers.FuelCapacity)
+              navigate("vehicleDetails")
+            } }
           />
         </View>
       </ScrollView>

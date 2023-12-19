@@ -11,6 +11,7 @@ import {
 import { colors } from "../../utils/theme";
 
 import { SearchIcon } from "../../assets/svgs";
+import { Helpers } from "../../BaseUrl/Helper";
 
 const SelectVehicleBrandScreen = ({ vehicleBrands, navigate }) => {
   return (
@@ -27,7 +28,12 @@ const SelectVehicleBrandScreen = ({ vehicleBrands, navigate }) => {
         renderItem={({ item }) => (
           <SelectArrowButton
             title={item.title}
-            onPress={() => navigate("selectVehicleModel")}
+            onPress={() => {
+              Helpers.CarBrandName = item.title
+              console.log(Helpers.CarBrandName)
+              navigate("selectVehicleModel")
+            }
+            }
           />
         )}
         keyExtractor={(item) => item.id}

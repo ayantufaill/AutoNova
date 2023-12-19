@@ -2,12 +2,18 @@ import React from "react";
 
 import AppIntroSlider from "react-native-app-intro-slider";
 import { ScaledSheet } from "react-native-size-matters";
-
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StatusBar, Image } from "react-native";
-
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 import { colors } from "../../utils/theme";
 
 const IntroScreen = () => {
+  const navigation = useNavigation();
+  const onDoneAction = async()=>{
+    await AsyncStorage.setItem('IntroOneTime', 'true');
+    navigation.navigate('signUp');
+    
+  }
   const slides = [
     {
       key: 1,
@@ -48,6 +54,7 @@ const IntroScreen = () => {
         data={slides}
         renderItem={renderSlide}
         showSkipButton={true}
+        onDone={onDoneAction}
       />
     </View>
   );

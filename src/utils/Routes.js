@@ -1,9 +1,9 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ScaledSheet } from "react-native-size-matters";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import  ActionButton  from "react-native-action-button";
 
 import { colors } from "./theme";
 import {
@@ -17,6 +17,13 @@ import {
   VehicleFuelCapacityContainer,
   VehicleDetailsContainer,
   HomeContainer,
+  TypeOfExpenseContainer,
+  ServiceContainer,
+  ReportContainer,
+  GasStationContainer,
+  ReminderContainer,
+  NameOfExpensesContainer,
+  MoreOptionsContainer
 } from "../screens";
 import {
   HomeActiveIcon,
@@ -30,6 +37,10 @@ import {
   PlusActiveIcon,
   PlusInactiveIcon,
 } from "../assets/svgs";
+import SplashScreen from "../screens/splash/SplashScreen";
+import ProfileContainer from "../screens/profile/ProfileContainer";
+
+
 
 const Stack = createStackNavigator();
 const Home = createStackNavigator();
@@ -37,17 +48,24 @@ const Tab = createBottomTabNavigator();
 
 const Auth = () => {
   return (
-    <Stack.Navigator initialRouteName="signUp">
+    <Stack.Navigator initialRouteName="splashSreen">
+          <Stack.Screen
+        name="splashSreen"
+        component={SplashScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="intro"
         component={IntroContainer}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="signUp"
         component={SignUpContainer}
         options={{ headerShown: false }}
       />
+      
       <Stack.Screen
         name="signIn"
         component={SignInContainer}
@@ -93,6 +111,126 @@ const Auth = () => {
         component={MyTabs}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="Reminder"
+        component={ReminderContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+      <Stack.Screen
+        name="typesOfExpenses"
+        component={TypeOfExpenseContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+          <Stack.Screen
+        name="nameOfExpense"
+        component={NameOfExpensesContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Service"
+        component={ServiceContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+            <Stack.Screen
+        name="gasStation"
+        component={GasStationContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+                <Stack.Screen
+        name="Reports"
+        component={ReportContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+                <Stack.Screen
+        name="moreOptions"
+        component={MoreOptionsContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
+                <Stack.Screen
+        name="My Profile"
+        component={ProfileContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor:colors.primaryColor , 
+          },
+          headerTintColor: 'white', 
+          headerTitleStyle: {
+            fontWeight: 'normal',
+            color: 'white',
+          },
+        }}
+      />
     </Stack.Navigator>
   );
 };
@@ -100,11 +238,6 @@ const Auth = () => {
 const HomeStack = () => {
   return (
     <Home.Navigator initialRouteName="homeScreen">
-      <Home.Screen
-        name="vehicleDetails"
-        component={VehicleDetailsContainer}
-        options={{ headerShown: false }}
-      />
 
       <Home.Screen
         name="homeScreen"
@@ -116,6 +249,7 @@ const HomeStack = () => {
 };
 
 function MyTabs() {
+  
   return (
     <Tab.Navigator
       initialRouteName="home"
@@ -181,7 +315,7 @@ function MyTabs() {
         name="signIn"
         component={SignInContainer}
       />
-
+  
       <Tab.Screen
         options={{
           title: "",
@@ -219,12 +353,15 @@ function MyTabs() {
             </View>
           ),
         }}
-        name="forgotPassword"
-        component={ForgotPasswordContainer}
+        name="MoreOptionsContainer"
+        component={MoreOptionsContainer}
       />
+         
+      
     </Tab.Navigator>
   );
 }
+
 
 const styles = ScaledSheet.create({
   activeTab: {

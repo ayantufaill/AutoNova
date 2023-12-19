@@ -13,7 +13,7 @@ import {
   ExpenseIcon,
 } from "../../assets/svgs";
 
-const VehicleDescriptionCard = () => {
+const VehicleDescriptionCard = ({brand, model}) => {
   return (
     <View style={styles.cardWrapper}>
       <Image
@@ -27,7 +27,7 @@ const VehicleDescriptionCard = () => {
           <Text style={styles.carName}>Your Car:</Text>
         </View>
         <TouchableOpacity style={styles.carModelWrapper}>
-          <Text style={styles.carModel}>Tesla Model-S</Text>
+          <Text style={styles.carModel}>{brand} {model}</Text>
           <RightArrow fill={colors.whiteColor} />
         </TouchableOpacity>
       </View>

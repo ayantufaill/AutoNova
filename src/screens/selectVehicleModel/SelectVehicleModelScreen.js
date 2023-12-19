@@ -5,6 +5,7 @@ import { View, FlatList } from "react-native";
 
 import { BackArrowHeader, SelectArrowButton } from "../../components";
 import { colors } from "../../utils/theme";
+import { Helpers } from "../../BaseUrl/Helper";
 
 const SelectVehicleModelScreen = ({ vehicleModels, navigate }) => {
   return (
@@ -15,7 +16,10 @@ const SelectVehicleModelScreen = ({ vehicleModels, navigate }) => {
         renderItem={({ item }) => (
           <SelectArrowButton
             title={item.title}
-            onPress={() => navigate("vehicleFuelCapacity")}
+            onPress={() =>{
+              navigate("vehicleFuelCapacity")
+              Helpers.SelectCarModel = item.title
+            } }
           />
         )}
         keyExtractor={(item) => item.id}

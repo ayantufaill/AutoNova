@@ -1,7 +1,9 @@
-import React from "react";
-
+import React,{useEffect, useState} from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { ScaledSheet } from "react-native-size-matters";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity,ActivityIndicator } from "react-native";
+import { signup } from "../../actions/singupActions";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
   AuthInput,
@@ -13,8 +15,75 @@ import { colors } from "../../utils/theme";
 
 import UserIcon from "../../assets/svgs/UserIcon";
 import EmailIcon from "../../assets/svgs/EmailIcon";
+import Toast from "react-native-toast-message";
 
 const SignUpScreen = ({ navigate }) => {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.signup.loading);
+  const error = useSelector((state) => state.signup.error);
+  const success = useSelector((state) => state.signup.success);
+
+  const [userName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  useEffect(() => {
+    if (success) {
+      Toast.show({
+        type: 'success',
+        position: 'bottom',
+        text1: 'User created successfully',
+        visibilityTime: 3000, 
+        autoHide: true,
+      });
+      navigate('signIn');
+    }
+    
+  }, [success, navigate]);
+ 
+
+  const handleSignup =  () => {
+    if (!userName || !email || !password || !confirmPassword) {
+      Toast.show({
+        type: 'error',
+        position: 'bottom',
+        text1: 'Please fill in all fields',
+        visibilityTime: 3000, 
+        autoHide: true,
+      });
+      return;
+    }
+  
+
+    if (password !== confirmPassword) {
+      Toast.show({
+        type: 'error',
+        position: 'bottom',
+        text1: 'Passwords do not match',
+        visibilityTime: 3000, 
+        autoHide: true,
+      });
+      return;
+    }
+    if(password.length && confirmPassword.length > 8){
+      Toast.show({
+        type: 'error',
+        position: 'bottom',
+        text1: 'Password:',
+        text2: 'you can not add more then 8 letters',
+        visibilityTime: 3000, 
+        autoHide: true,
+      });
+      return;
+    }
+
+    const userData = { userName, email, password, confirmPassword };
+    
+    dispatch(signup(userData));
+  
+    
+  };
   return (
     <View style={styles.container}>
       <AutoNovaHeader />
@@ -26,23 +95,31 @@ const SignUpScreen = ({ navigate }) => {
           placeholder="Full Name"
           inputMode="text"
           leftIcon={<UserIcon />}
+          onChangeText={(text) => setFullName(text)}
+
         />
         <AuthInput
           placeholder="Email"
           inputMode="email"
           leftIcon={<EmailIcon />}
+          onChangeText={(text) => setEmail(text)}
+
         />
         <AuthInput
           placeholder="Password"
           inputMode="text"
           secureTextEntry={true}
           leftIcon={<UserIcon />}
+          onChangeText={(text) => setPassword(text)}
+
         />
         <AuthInput
           placeholder="Confirm Password"
           inputMode="text"
           secureTextEntry={true}
           leftIcon={<UserIcon />}
+          onChangeText={(text) => setConfirmPassword(text)}
+
         />
         <View style={styles.checkboxWrapper}>
           <Text>#</Text>
@@ -53,12 +130,11 @@ const SignUpScreen = ({ navigate }) => {
           </Text>
         </View>
         <View style={styles.buttonWrapper}>
-          <GlobalButton
-            title="Sign Up"
-            onPress={() => {
-              navigate("signIn");
-            }}
-          />
+        {loading ? (
+            <ActivityIndicator size="large" color={colors.blueColor} />
+          ) : (
+            <GlobalButton title="Sign Up" onPress={handleSignup} />
+          )}
         </View>
         <View style={styles.borderWrapper}>
           <View style={styles.horizontalBorder} />

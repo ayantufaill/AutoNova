@@ -7,6 +7,8 @@ import BackArrowHeader from "./headers/BackArrowHeader";
 import SearchInput from "./inputs/SearchInput";
 import SelectArrowButton from "./buttons/SelectArrowButton";
 import VehicleDetails from "./vehicles/VehicleDetails";
+import NavigationHead from "./navigationHead/NavigationHead";
+import IconWithArrow from "./IconWithArrow/IconWithArrow";
 
 export {
   AuthInput,
@@ -18,4 +20,6 @@ export {
   SearchInput,
   SelectArrowButton,
   VehicleDetails,
+  NavigationHead,
+  IconWithArrow
 };

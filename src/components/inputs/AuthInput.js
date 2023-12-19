@@ -11,6 +11,7 @@ const AuthInput = ({
   leftIcon,
   rightIcon,
   secureTextEntry,
+  onChangeText
 }) => {
   return (
     <View style={styles.inputWrapper}>
@@ -22,6 +23,7 @@ const AuthInput = ({
           placeholderTextColor={colors.darkGreyColor}
           inputMode={inputMode}
           secureTextEntry={secureTextEntry}
+          onChangeText={onChangeText}
         />
       </View>
       {rightIcon}

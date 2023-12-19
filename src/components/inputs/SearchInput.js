@@ -11,6 +11,7 @@ const SearchInput = ({
   icon,
   inputMode,
   placeholderTextColor = colors.extraLightGreyColor,
+  onChangeText
 }) => {
   return (
     <View style={[styles.inputWrapper, { ...customStyle }]}>
@@ -20,6 +21,7 @@ const SearchInput = ({
         placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
         inputMode={inputMode}
+        onChangeText={onChangeText}
       />
     </View>
   );
