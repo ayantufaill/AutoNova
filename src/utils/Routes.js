@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ScaledSheet } from "react-native-size-matters";
 import { View, Text, TouchableOpacity } from "react-native";
-import  ActionButton  from "react-native-action-button";
 
 import { colors } from "./theme";
 import {
