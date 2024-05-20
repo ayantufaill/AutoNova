@@ -15,6 +15,9 @@ import GasStationContainer from "./gasstation/GasStationContainer";
 import ReminderContainer from "./reminder/ReminderContainer";
 import NameOfExpensesContainer from "./nameOfExpenses/NameOfExpensesContainer";
 import MoreOptionsContainer from "./moreOptions/MoreOptionsContainer";
+import ExpenseContainer from "./expense/ExpenseContainer";
+import RefuelingContainer from "./refueling/RefuelingContainer";
+
 export {
   IntroContainer,
   SignUpContainer,
@@ -32,6 +35,7 @@ export {
   GasStationContainer,
   ReminderContainer,
   NameOfExpensesContainer,
-  MoreOptionsContainer
-  
+  MoreOptionsContainer,
+  ExpenseContainer,
+  RefuelingContainer,
 };

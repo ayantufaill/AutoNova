@@ -11,7 +11,7 @@ export const signIn = (userData) => async (dispatch) => {
   try {
     dispatch(startSignIn());
     const response = await axios.post(
-      `${Helpers.BaseUrlAutoNova}/login`,
+      `${Helpers.BaseUrlAutoNova}/auth/login`,
       userData
     );
     if (response.data) {

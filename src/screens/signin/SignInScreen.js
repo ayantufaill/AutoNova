@@ -96,10 +96,10 @@ const SignInScreen = ({ navigate }) => {
         />
 
         <View style={styles.forgotPasswordWrapper}>
-          <View style={styles.rememberMeWrapper}>
+          {/* <View style={styles.rememberMeWrapper}>
             <Text>#</Text>
             <Text style={styles.rememberMe}>Remember me</Text>
-          </View>
+          </View> */}
           <TouchableOpacity
             onPress={() => {
               navigate("forgotPassword");
@@ -120,14 +120,14 @@ const SignInScreen = ({ navigate }) => {
           )}
          
         </View>
-        <View style={styles.borderWrapper}>
+        {/* <View style={styles.borderWrapper}>
           <View style={styles.horizontalBorder} />
           <Text style={styles.socialSignup}>Or sign up with</Text>
           <View style={styles.horizontalBorder} />
         </View>
         <View style={styles.socialButtonWrapper}>
           <SocialButton title="Google" />
-        </View>
+        </View> */}
       </ScrollView>
       <View style={styles.alreadyAccountWrapper}>
         <Text style={styles.alreadyAccount}>Don’t have an account?</Text>
@@ -221,7 +221,7 @@ const styles = ScaledSheet.create({
   forgotPasswordWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     marginTop: "10@s",
   },
   rememberMeWrapper: {

@@ -10,7 +10,7 @@ export const addVehicle = (userData) => async (dispatch) => {
     dispatch(startAddVehicle());
     const authToken = Helpers.AuthTokken;
     console.log(authToken)
-    const response = await axios.post(`${Helpers.BaseUrlAutoNova}/car/create`, userData, {
+    const response = await axios.post(`${Helpers.BaseUrlAutoNova}/vehicle/addVehicle`, userData, {
       headers: {
         'Authorization': `Bearer ${authToken}`,
         'Content-Type': 'application/json', 

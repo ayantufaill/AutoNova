@@ -12,14 +12,14 @@ import {
 } from "../../assets/svgs";
 import { SearchInput, GlobalButton } from "../../components";
 
-const ServiceScreen = () => {
+const ExpenseScreen = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const [serviceValues, setServiceValues] = useState({
+  const [expenseValues, setExpenseValues] = useState({
     date: "",
     time: "",
     odometer: "",
-    serviceName: "",
+    expenseName: "",
     place: "",
     driver: "",
     note: "",
@@ -69,7 +69,7 @@ const ServiceScreen = () => {
                   inputMode="numeric"
                   placeholderTextColor={colors.darkGreyColor}
                   onChangeText={(value) =>
-                    setServiceValues({ ...serviceValues, date: value })
+                    setExpenseValues({ ...expenseValues, date: value })
                   }
                 />
                 <SearchInput
@@ -78,7 +78,7 @@ const ServiceScreen = () => {
                   inputMode="numeric"
                   placeholderTextColor={colors.darkGreyColor}
                   onChangeText={(value) =>
-                    setServiceValues({ ...serviceValues, time: value })
+                    setExpenseValues({ ...expenseValues, time: value })
                   }
                 />
               </View>
@@ -122,7 +122,7 @@ const ServiceScreen = () => {
                   inputMode="numeric"
                   placeholderTextColor={colors.darkGreyColor}
                   onChangeText={(value) =>
-                    setServiceValues({ ...serviceValues, odometer: value })
+                    setExpenseValues({ ...expenseValues, odometer: value })
                   }
                 />
               </View>
@@ -167,7 +167,7 @@ const ServiceScreen = () => {
                   inputMode="numeric"
                   placeholderTextColor={colors.darkGreyColor}
                   onChangeText={(value) =>
-                    setServiceValues({ ...serviceValues, serviceName: value })
+                    setExpenseValues({ ...expenseValues, expenseName: value })
                   }
                 />
               </View>
@@ -211,7 +211,7 @@ const ServiceScreen = () => {
                   inputMode="numeric"
                   placeholderTextColor={colors.darkGreyColor}
                   onChangeText={(value) =>
-                    setServiceValues({ ...serviceValues, place: value })
+                    setExpenseValues({ ...expenseValues, place: value })
                   }
                 />
               </View>
@@ -255,7 +255,7 @@ const ServiceScreen = () => {
                   inputMode="numeric"
                   placeholderTextColor={colors.darkGreyColor}
                   onChangeText={(value) =>
-                    setServiceValues({ ...serviceValues, driver: value })
+                    setExpenseValues({ ...expenseValues, driver: value })
                   }
                 />
               </View>
@@ -268,7 +268,7 @@ const ServiceScreen = () => {
           inputMode="numeric"
           placeholderTextColor={colors.darkGreyColor}
           onChangeText={(value) =>
-            setServiceValues({ ...serviceValues, note: value })
+            setExpenseValues({ ...expenseValues, note: value })
           }
         />
         <GlobalButton
@@ -281,7 +281,7 @@ const ServiceScreen = () => {
   );
 };
 
-export default ServiceScreen;
+export default ExpenseScreen;
 
 const styles = ScaledSheet.create({
   container: {

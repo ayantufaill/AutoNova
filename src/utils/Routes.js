@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ScaledSheet } from "react-native-size-matters";
 import { View, Text, TouchableOpacity } from "react-native";
-import  ActionButton  from "react-native-action-button";
 
 import { colors } from "./theme";
 import {
@@ -23,7 +22,9 @@ import {
   GasStationContainer,
   ReminderContainer,
   NameOfExpensesContainer,
-  MoreOptionsContainer
+  MoreOptionsContainer,
+  ExpenseContainer,
+  RefuelingContainer,
 } from "../screens";
 import {
   HomeActiveIcon,
@@ -36,11 +37,12 @@ import {
   MenuInactiveIcon,
   PlusActiveIcon,
   PlusInactiveIcon,
+  ExpenseIcon,
+  ServicesIcon,
+  RefuelIcon,
 } from "../assets/svgs";
 import SplashScreen from "../screens/splash/SplashScreen";
 import ProfileContainer from "../screens/profile/ProfileContainer";
-
-
 
 const Stack = createStackNavigator();
 const Home = createStackNavigator();
@@ -49,7 +51,7 @@ const Tab = createBottomTabNavigator();
 const Auth = () => {
   return (
     <Stack.Navigator initialRouteName="splashSreen">
-          <Stack.Screen
+      <Stack.Screen
         name="splashSreen"
         component={SplashScreen}
         options={{ headerShown: false }}
@@ -65,7 +67,7 @@ const Auth = () => {
         component={SignUpContainer}
         options={{ headerShown: false }}
       />
-      
+
       <Stack.Screen
         name="signIn"
         component={SignInContainer}
@@ -117,12 +119,12 @@ const Auth = () => {
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
@@ -132,27 +134,27 @@ const Auth = () => {
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
-          <Stack.Screen
+      <Stack.Screen
         name="nameOfExpense"
         component={NameOfExpensesContainer}
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
@@ -162,83 +164,119 @@ const Auth = () => {
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
-            <Stack.Screen
+      <Stack.Screen
+        name="Refueling"
+        component={RefuelingContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: colors.primaryColor,
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "normal",
+            color: "white",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Expense"
+        component={ExpenseContainer}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: colors.primaryColor,
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "normal",
+            color: "white",
+          },
+        }}
+      />
+      <Stack.Screen
         name="gasStation"
         component={GasStationContainer}
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
-                <Stack.Screen
+      <Stack.Screen
         name="Reports"
         component={ReportContainer}
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
-                <Stack.Screen
+      <Stack.Screen
         name="moreOptions"
         component={MoreOptionsContainer}
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
       />
-                <Stack.Screen
+      <Stack.Screen
         name="My Profile"
         component={ProfileContainer}
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor:colors.primaryColor , 
+            backgroundColor: colors.primaryColor,
           },
-          headerTintColor: 'white', 
+          headerTintColor: "white",
           headerTitleStyle: {
-            fontWeight: 'normal',
-            color: 'white',
+            fontWeight: "normal",
+            color: "white",
           },
         }}
+      />
+      <Stack.Screen
+        name="CreateNew"
+        component={CreateNew}
+        options={{ animationEnabled: true }}
       />
     </Stack.Navigator>
   );
 };
 
+const CreateNew = () => <View style={{ flex: 1, backgroundColor: "pink" }} />;
+
 const HomeStack = () => {
   return (
     <Home.Navigator initialRouteName="homeScreen">
-
       <Home.Screen
         name="homeScreen"
         component={HomeContainer}
@@ -248,8 +286,44 @@ const HomeStack = () => {
   );
 };
 
+const AddNew = ({ navigation }) => (
+  <View
+    style={{
+      width: 150,
+      position: "absolute",
+      bottom: 50,
+      backgroundColor: "#fff",
+      alignSelf: "center",
+      padding: 25,
+      gap: 20,
+      borderRadius: 20,
+    }}
+  >
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Expense")}
+      style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
+    >
+      <ExpenseIcon />
+      <Text>Expense</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Service")}
+      style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
+    >
+      <ServicesIcon />
+      <Text>Service</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Refueling")}
+      style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
+    >
+      <RefuelIcon />
+      <Text>Refueling</Text>
+    </TouchableOpacity>
+  </View>
+);
+
 function MyTabs() {
-  
   return (
     <Tab.Navigator
       initialRouteName="home"
@@ -261,7 +335,8 @@ function MyTabs() {
           borderTopWidth: 1,
           borderTopColor: colors.opacityColor,
         },
-      }}>
+      }}
+    >
       <Tab.Screen
         options={{
           title: "",
@@ -283,6 +358,7 @@ function MyTabs() {
         component={HomeStack}
       />
       <Tab.Screen
+        screenOptions={{ presentation: "modal" }}
         options={{
           title: "",
           tabBarIcon: ({ focused }) => (
@@ -303,6 +379,18 @@ function MyTabs() {
         component={SignUpContainer}
       />
 
+      {/* <Tab.Screen
+        options={{
+          title: "",
+          tabBarIcon: ({ focused }) => (
+            <View style={styles.plusIconWrapper}>
+              {focused ? <PlusActiveIcon /> : <PlusInactiveIcon />}
+            </View>
+          ),
+        }}
+        name="Add"
+        component={SignInContainer}
+      /> */}
       <Tab.Screen
         options={{
           title: "",
@@ -312,10 +400,10 @@ function MyTabs() {
             </View>
           ),
         }}
-        name="signIn"
-        component={SignInContainer}
+        name="Add"
+        component={AddNew}
       />
-  
+
       <Tab.Screen
         options={{
           title: "",
@@ -356,12 +444,9 @@ function MyTabs() {
         name="MoreOptionsContainer"
         component={MoreOptionsContainer}
       />
-         
-      
     </Tab.Navigator>
   );
 }
-
 
 const styles = ScaledSheet.create({
   activeTab: {

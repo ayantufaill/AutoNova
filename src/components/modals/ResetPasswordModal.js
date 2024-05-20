@@ -14,7 +14,8 @@ const ResetPasswordModal = ({ isModalVisible, handleClick, toggleModal }) => {
       <Modal
         isVisible={isModalVisible}
         onBackdropPress={toggleModal}
-        hasBackdrop={true}>
+        hasBackdrop={true}
+      >
         <View style={styles.modalContainer}>
           <Text style={styles.title}>Reset Password</Text>
           <Text style={styles.subTitle}>

@@ -27,6 +27,7 @@ const VehicleFuelCapacityScreen = ({ navigate }) => {
           inputMode="numeric"
           placeholderTextColor={colors.darkGreyColor}
           onChangeText={(text)=>setFuelCapacity(text)}
+          maxLength={2}
         />
         <View style={styles.buttonWrapper}>
           <GlobalButton

@@ -7,7 +7,7 @@ import Toast from 'react-native-toast-message'
 export const signup = (userData) => async (dispatch) => {
     try {
       dispatch(startSignup());
-      const response = await axios.post(`${Helpers.BaseUrlAutoNova}/register`, userData);
+      const response = await axios.post(`${Helpers.BaseUrlAutoNova}/auth/register`, userData);
       console.log(response.data);
   
       if (response.data) {

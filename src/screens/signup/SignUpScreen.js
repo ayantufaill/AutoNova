@@ -1,16 +1,15 @@
-import React,{useEffect, useState} from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ScaledSheet } from "react-native-size-matters";
-import { View, Text, ScrollView, TouchableOpacity,ActivityIndicator } from "react-native";
-import { signup } from "../../actions/singupActions";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import {
-  AuthInput,
-  GlobalButton,
-  SocialButton,
-  AutoNovaHeader,
-} from "../../components";
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
+import { signup } from "../../actions/singupActions";
+import { AuthInput, GlobalButton, AutoNovaHeader } from "../../components";
 import { colors } from "../../utils/theme";
 
 import UserIcon from "../../assets/svgs/UserIcon";
@@ -23,66 +22,61 @@ const SignUpScreen = ({ navigate }) => {
   const error = useSelector((state) => state.signup.error);
   const success = useSelector((state) => state.signup.success);
 
-  const [userName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [userName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   useEffect(() => {
     if (success) {
       Toast.show({
-        type: 'success',
-        position: 'bottom',
-        text1: 'User created successfully',
-        visibilityTime: 3000, 
+        type: "success",
+        position: "bottom",
+        text1: "User created successfully",
+        visibilityTime: 3000,
         autoHide: true,
       });
-      navigate('signIn');
+      navigate("signIn");
     }
-    
   }, [success, navigate]);
- 
 
-  const handleSignup =  () => {
+  const handleSignup = () => {
     if (!userName || !email || !password || !confirmPassword) {
       Toast.show({
-        type: 'error',
-        position: 'bottom',
-        text1: 'Please fill in all fields',
-        visibilityTime: 3000, 
+        type: "error",
+        position: "bottom",
+        text1: "Please fill in all fields",
+        visibilityTime: 3000,
         autoHide: true,
       });
       return;
     }
-  
 
     if (password !== confirmPassword) {
       Toast.show({
-        type: 'error',
-        position: 'bottom',
-        text1: 'Passwords do not match',
-        visibilityTime: 3000, 
+        type: "error",
+        position: "bottom",
+        text1: "Passwords do not match",
+        visibilityTime: 3000,
         autoHide: true,
       });
       return;
     }
-    if(password.length && confirmPassword.length > 8){
+    if (password.length && confirmPassword.length > 8) {
       Toast.show({
-        type: 'error',
-        position: 'bottom',
-        text1: 'Password:',
-        text2: 'you can not add more then 8 letters',
-        visibilityTime: 3000, 
+        type: "error",
+        position: "bottom",
+        text1: "Password:",
+        text2: "you can not add more then 8 letters",
+        visibilityTime: 3000,
         autoHide: true,
       });
       return;
     }
 
     const userData = { userName, email, password, confirmPassword };
-    
+
     dispatch(signup(userData));
-  
-    
   };
   return (
     <View style={styles.container}>
@@ -90,20 +84,19 @@ const SignUpScreen = ({ navigate }) => {
       <Text style={styles.title}>Sign Up for an Account</Text>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={styles.scrollWrapper}>
+        style={styles.scrollWrapper}
+      >
         <AuthInput
           placeholder="Full Name"
           inputMode="text"
           leftIcon={<UserIcon />}
           onChangeText={(text) => setFullName(text)}
-
         />
         <AuthInput
           placeholder="Email"
           inputMode="email"
           leftIcon={<EmailIcon />}
           onChangeText={(text) => setEmail(text)}
-
         />
         <AuthInput
           placeholder="Password"
@@ -111,7 +104,6 @@ const SignUpScreen = ({ navigate }) => {
           secureTextEntry={true}
           leftIcon={<UserIcon />}
           onChangeText={(text) => setPassword(text)}
-
         />
         <AuthInput
           placeholder="Confirm Password"
@@ -119,7 +111,6 @@ const SignUpScreen = ({ navigate }) => {
           secureTextEntry={true}
           leftIcon={<UserIcon />}
           onChangeText={(text) => setConfirmPassword(text)}
-
         />
         <View style={styles.checkboxWrapper}>
           <Text>#</Text>
@@ -130,26 +121,27 @@ const SignUpScreen = ({ navigate }) => {
           </Text>
         </View>
         <View style={styles.buttonWrapper}>
-        {loading ? (
+          {loading ? (
             <ActivityIndicator size="large" color={colors.blueColor} />
           ) : (
             <GlobalButton title="Sign Up" onPress={handleSignup} />
           )}
         </View>
-        <View style={styles.borderWrapper}>
+        {/* <View style={styles.borderWrapper}>
           <View style={styles.horizontalBorder} />
           <Text style={styles.socialSignup}>Or sign up with</Text>
           <View style={styles.horizontalBorder} />
         </View>
         <View style={styles.socialButtonWrapper}>
           <SocialButton title="Google" />
-        </View>
+        </View> */}
         <View style={styles.alreadyAccountWrapper}>
           <Text style={styles.alreadyAccount}>Already have an account?</Text>
           <TouchableOpacity
             onPress={() => {
               navigate("signIn");
-            }}>
+            }}
+          >
             <Text style={styles.forLgin}>Log In</Text>
           </TouchableOpacity>
         </View>
