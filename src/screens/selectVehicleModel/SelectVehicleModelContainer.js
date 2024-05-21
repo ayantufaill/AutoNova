@@ -1,19 +1,20 @@
-import React from "react";
+import React from 'react';
+import SelectVehicleModelScreen from './SelectVehicleModelScreen';
+import { vehicleModels } from '../../utils/mock';
 
-import { useNavigation } from "@react-navigation/native";
-
-import SelectVehicleModelScreen from "./SelectVehicleModelScreen";
-import { vehicleModels } from "../../utils/mock";
-
-const SelectVehicleModelContainer = () => {
-  const navigation = useNavigation();
+const SelectVehicleModelContainer = ({ navigation, route }) => {
   const navigate = (route) => {
     navigation.navigate(route);
   };
+  const { selectedId } = route.params;
+
+  const filteredModals = vehicleModels.filter(
+    (vehicle) => vehicle.brandId === selectedId
+  );
 
   return (
     <SelectVehicleModelScreen
-      vehicleModels={vehicleModels}
+      vehicleModels={filteredModals}
       navigate={navigate}
     />
   );

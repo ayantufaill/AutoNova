@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { BackHandler } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import HomeScreen from "./HomeScreen";
+import React, { useEffect } from 'react';
+import { BackHandler } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import HomeScreen from './HomeScreen';
 
 const HomeContainer = () => {
   const navigation = useNavigation();
@@ -12,14 +12,14 @@ const HomeContainer = () => {
   useEffect(() => {
     const backAction = () => {
       BackHandler.exitApp();
-      return true; 
+      return true;
     };
     const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
+      'hardwareBackPress',
       backAction
     );
     return () => backHandler.remove();
-  }, []); 
+  }, []);
 
   return <HomeScreen navigate={navigate} />;
 };

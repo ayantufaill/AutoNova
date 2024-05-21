@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, Image,StatusBar } from 'react-native';
+import { Text, View, Image, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ScaledSheet, scale, verticalScale } from 'react-native-size-matters';
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import AutoNovaLogo from '../../assets/pngs/AutoNovaLogo.png';
 import halfSpark from '../../assets/pngs/halfSpark.png';
 import { Helpers } from '../../BaseUrl/Helper';
@@ -15,9 +15,14 @@ const SplashScreen = () => {
     const checkToken = async () => {
       try {
         const authToken = await AsyncStorage.getItem('BrearTokken');
-    Helpers.AuthTokken = authToken
+        Helpers.AuthTokken = authToken;
         const Intro = await AsyncStorage.getItem('IntroOneTime');
-        const targetScreen = authToken !== null && Intro === 'true' ? 'addVehicle' : authToken === null && Intro === null? 'intro': 'signUp';
+        const targetScreen =
+          authToken !== null && Intro === 'true'
+            ? 'addVehicle'
+            : authToken === null && Intro === null
+            ? 'intro'
+            : 'signUp';
         const timeoutId = setTimeout(() => {
           navigation.navigate(targetScreen);
         }, 3000);
@@ -32,7 +37,10 @@ const SplashScreen = () => {
 
   return (
     <View style={styles.container}>
-              <StatusBar backgroundColor={colors.primaryColor} barStyle="dark-content" />
+      <StatusBar
+        backgroundColor={colors.primaryColor}
+        barStyle="dark-content"
+      />
 
       <Image source={halfSpark} style={styles.halfSpark} />
       <View style={styles.logoAutoNovaContainer}>

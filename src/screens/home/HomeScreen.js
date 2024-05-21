@@ -1,14 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Text, StatusBar, ScrollView, ActivityIndicator } from "react-native";
-import { ScaledSheet } from "react-native-size-matters";
+import {
+  View,
+  Text,
+  StatusBar,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters';
 
-import Header from "./Header";
-import VehicleDescriptionCard from "./VehicleDescriptionCard";
-import ServicesCard from "./ServicesCard";
-import { colors } from "../../utils/theme";
-import { PickExpenseIcon, ServicesIcon } from "../../assets/svgs";
-import { getCarDetials } from "../../actions/getCarDetails";
+import Header from './Header';
+import VehicleDescriptionCard from './VehicleDescriptionCard';
+import ServicesCard from './ServicesCard';
+import { colors } from '../../utils/theme';
+import { PickExpenseIcon, ServicesIcon } from '../../assets/svgs';
+import { getCarDetials } from '../../actions/getCarDetails';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -19,11 +25,11 @@ const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(getCarDetials());
-  }, []); 
+  }, []);
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={colors.blueColor} barStyle="light-content" />
+      <StatusBar backgroundColor={colors.blueColor} barStyle="dark-content" />
       <Header />
       {loading ? (
         <View style={styles.loadingContainer}>
@@ -54,12 +60,12 @@ const styles = ScaledSheet.create({
   },
   contentContainer: {
     flex: 1,
-    padding: "15@s",
+    padding: '15@s',
   },
   loadingContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

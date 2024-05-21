@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ScaledSheet } from "react-native-size-matters";
-import { View, Text, TouchableOpacity } from "react-native";
+import React, { useState } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ScaledSheet } from 'react-native-size-matters';
+import { View, Platform } from 'react-native';
 
-import { colors } from "./theme";
+import { colors } from './theme';
 import {
   IntroContainer,
   SignUpContainer,
@@ -25,7 +25,8 @@ import {
   MoreOptionsContainer,
   ExpenseContainer,
   RefuelingContainer,
-} from "../screens";
+  DashboardContainer,
+} from '../screens';
 import {
   HomeActiveIcon,
   HomeInactiveIcon,
@@ -37,12 +38,9 @@ import {
   MenuInactiveIcon,
   PlusActiveIcon,
   PlusInactiveIcon,
-  ExpenseIcon,
-  ServicesIcon,
-  RefuelIcon,
-} from "../assets/svgs";
-import SplashScreen from "../screens/splash/SplashScreen";
-import ProfileContainer from "../screens/profile/ProfileContainer";
+} from '../assets/svgs';
+import SplashScreen from '../screens/splash/SplashScreen';
+import ProfileContainer from '../screens/profile/ProfileContainer';
 
 const Stack = createStackNavigator();
 const Home = createStackNavigator();
@@ -51,6 +49,7 @@ const Tab = createBottomTabNavigator();
 const Auth = () => {
   return (
     <Stack.Navigator initialRouteName="splashSreen">
+      {/* <Stack.Navigator initialRouteName="dashboard"> */}
       <Stack.Screen
         name="splashSreen"
         component={SplashScreen}
@@ -108,9 +107,14 @@ const Auth = () => {
         component={HomeStack}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="tabs"
         component={MyTabs}
+        options={{ headerShown: false }}
+      /> */}
+      <Stack.Screen
+        name="dashboard"
+        component={DashboardContainer}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -121,10 +125,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -136,10 +140,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -151,10 +155,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -166,10 +170,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -181,10 +185,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -196,10 +200,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -211,10 +215,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -226,10 +230,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -241,10 +245,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -256,10 +260,10 @@ const Auth = () => {
           headerStyle: {
             backgroundColor: colors.primaryColor,
           },
-          headerTintColor: "white",
+          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: "normal",
-            color: "white",
+            fontWeight: 'normal',
+            color: 'white',
           },
         }}
       />
@@ -272,9 +276,9 @@ const Auth = () => {
   );
 };
 
-const CreateNew = () => <View style={{ flex: 1, backgroundColor: "pink" }} />;
+const CreateNew = () => <View style={{ flex: 1, backgroundColor: 'pink' }} />;
 
-const HomeStack = () => {
+export const HomeStack = () => {
   return (
     <Home.Navigator initialRouteName="homeScreen">
       <Home.Screen
@@ -286,43 +290,6 @@ const HomeStack = () => {
   );
 };
 
-const AddNew = ({ navigation }) => (
-  <View
-    style={{
-      width: 150,
-      position: "absolute",
-      bottom: 50,
-      backgroundColor: "#fff",
-      alignSelf: "center",
-      padding: 25,
-      gap: 20,
-      borderRadius: 20,
-    }}
-  >
-    <TouchableOpacity
-      onPress={() => navigation.navigate("Expense")}
-      style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
-    >
-      <ExpenseIcon />
-      <Text>Expense</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      onPress={() => navigation.navigate("Service")}
-      style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
-    >
-      <ServicesIcon />
-      <Text>Service</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      onPress={() => navigation.navigate("Refueling")}
-      style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
-    >
-      <RefuelIcon />
-      <Text>Refueling</Text>
-    </TouchableOpacity>
-  </View>
-);
-
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -331,7 +298,7 @@ function MyTabs() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: colors.whiteColor,
-          height: Platform.OS === "ios" ? 65 : 55,
+          height: Platform.OS === 'ios' ? 65 : 55,
           borderTopWidth: 1,
           borderTopColor: colors.opacityColor,
         },
@@ -339,7 +306,7 @@ function MyTabs() {
     >
       <Tab.Screen
         options={{
-          title: "",
+          title: '',
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (
@@ -358,9 +325,9 @@ function MyTabs() {
         component={HomeStack}
       />
       <Tab.Screen
-        screenOptions={{ presentation: "modal" }}
+        screenOptions={{ presentation: 'modal' }}
         options={{
-          title: "",
+          title: '',
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (
@@ -393,7 +360,7 @@ function MyTabs() {
       /> */}
       <Tab.Screen
         options={{
-          title: "",
+          title: '',
           tabBarIcon: ({ focused }) => (
             <View style={styles.plusIconWrapper}>
               {focused ? <PlusActiveIcon /> : <PlusInactiveIcon />}
@@ -406,7 +373,7 @@ function MyTabs() {
 
       <Tab.Screen
         options={{
-          title: "",
+          title: '',
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (
@@ -426,7 +393,7 @@ function MyTabs() {
       />
       <Tab.Screen
         options={{
-          title: "",
+          title: '',
           tabBarIcon: ({ focused }) => (
             <View>
               {focused ? (
@@ -450,22 +417,22 @@ function MyTabs() {
 
 const styles = ScaledSheet.create({
   activeTab: {
-    marginTop: "12@s",
+    marginTop: '12@s',
   },
   inactiveTab: {
-    marginTop: "12@s",
+    marginTop: '12@s',
   },
   plusIconWrapper: {
     backgroundColor: colors.whiteColor,
     borderWidth: 1,
     borderColor: colors.opacityColor,
-    borderRadius: "50@s",
-    height: "52@s",
-    width: "52@s",
-    top: "-25@s",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
+    borderRadius: '50@s',
+    height: '52@s',
+    width: '52@s',
+    top: '-25@s',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
   },
 });
 

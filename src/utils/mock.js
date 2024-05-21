@@ -1,85 +1,54 @@
 export const vehicleBrands = [
-  {
-    id: "1",
-    title: "Honde",
-  },
-  {
-    id: "2",
-    title: "Aiways",
-  },
-  {
-    id: "3",
-    title: "Aptera",
-  },
-  {
-    id: "4",
-    title: "Aptera",
-  },
-  {
-    id: "5",
-    title: "Aptera",
-  },
-  {
-    id: "6",
-    title: "Honde",
-  },
-  {
-    id: "7",
-    title: "Honde",
-  },
-  {
-    id: "8",
-    title: "Honde",
-  },
-  {
-    id: "9",
-    title: "Honde",
-  },
-  {
-    id: "10",
-    title: "Honde",
-  },
-  {
-    id: "11",
-    title: "Honde",
-  },
-  {
-    id: "12",
-    title: "Honde",
-  },
-  {
-    id: "13",
-    title: "Honde",
-  },
-  {
-    id: "14",
-    title: "Honde",
-  },
-  {
-    id: "15",
-    title: "Honde",
-  },
+  { id: '1', title: 'Mercedes-Benz' },
+  { id: '2', title: 'Tesla' },
+  { id: '3', title: 'Ford' },
+  { id: '4', title: 'Bentley' },
+  { id: '5', title: 'Dodge' },
+  { id: '6', title: 'Toyota' },
+  { id: '7', title: 'Chevrolet' },
+  { id: '8', title: 'Suzuki' },
+  { id: '9', title: 'BMW' },
+  { id: '10', title: 'Lexus' },
+  { id: '11', title: 'Porsche' },
+  { id: '12', title: 'Airways' },
+  { id: '13', title: 'Audi' },
+  { id: '14', title: 'Honda' },
+  { id: '15', title: 'Kia' },
 ];
 
 export const vehicleModels = [
-  {
-    id: "1",
-    title: "350z",
-  },
-  {
-    id: "2",
-    title: "GTR",
-  },
-  {
-    id: "3",
-    title: "360",
-  },
-  {
-    id: "4",
-    title: "Sentra",
-  },
-  {
-    id: "5",
-    title: "Micra",
-  },
-];
+  { id: '1', title: 'C-Class', brandId: '1' },
+  { id: '2', title: 'E-Class', brandId: '1' },
+  { id: '3', title: 'S-Class', brandId: '1' },
+  { id: '4', title: 'Model S', brandId: '2' },
+  { id: '5', title: 'Model 3', brandId: '2' },
+  { id: '6', title: 'Model X', brandId: '2' },
+  { id: '7', title: 'Mustang', brandId: '3' },
+  { id: '8', title: 'F-150', brandId: '3' },
+  { id: '9', title: 'Explorer', brandId: '3' },
+  { id: '10', title: 'Continental GT', brandId: '4' },
+  { id: '11', title: 'Bentayga', brandId: '4' },
+  { id: '12', title: 'Charger', brandId: '5' },
+  { id: '13', title: 'Challenger', brandId: '5' },
+  { id: '14', title: 'Corolla', brandId: '6' },
+  { id: '15', title: 'Camry', brandId: '6' },
+  { id: '16', title: 'RAV4', brandId: '6' },
+  { id: '17', title: 'Silverado', brandId: '7' },
+  { id: '18', title: 'Malibu', brandId: '7' },
+  { id: '19', title: 'Swift', brandId: '8' },
+  { id: '20', title: 'Vitara', brandId: '8' },
+  { id: '21', title: '3 Series', brandId: '9' },
+  { id: '22', title: 'X5', brandId: '9' },
+  { id: '23', title: 'ES', brandId: '10' },
+  { id: '24', title: 'RX', brandId: '10' },
+  { id: '25', title: '911', brandId: '11' },
+  { id: '26', title: 'Cayenne', brandId: '11' },
+  { id: '27', title: 'A320', brandId: '12' },
+  { id: '28', title: 'A350', brandId: '12' },
+  { id: '29', title: 'A4', brandId: '13' },
+  { id: '30', title: 'Q7', brandId: '13' },
+  { id: '31', title: 'Civic', brandId: '14' },
+  { id: '32', title: 'Accord', brandId: '14' },
+  { id: '33', title: 'Sportage', brandId: '15' },
+  { id: '34', title: 'Sorento', brandId: '15' },
+]; // // Function to filter models based on selected brand // export const getModelsByBrand = (brandId) => { // return vehicleModels.filter(model => model.brandId === brandId); // }; // // Example usage: // // To get Mercedes-Benz models: // const mercedesModels = getModelsByBrand("1"); // console.log(mercedesModels); // // To get Toyota models: // const toyotaModels = getModelsByBrand("6"); // console.log(toyotaModels);

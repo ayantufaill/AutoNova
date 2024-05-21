@@ -38,6 +38,7 @@ const styles = ScaledSheet.create({
     padding: 20,
     gap: '10@s',
     backgroundColor: colors.primaryColor,
+    justifyContent: 'center',
   },
   innerContainerForBack: {
     width: scale(327),

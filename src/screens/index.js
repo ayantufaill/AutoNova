@@ -17,6 +17,7 @@ import NameOfExpensesContainer from "./nameOfExpenses/NameOfExpensesContainer";
 import MoreOptionsContainer from "./moreOptions/MoreOptionsContainer";
 import ExpenseContainer from "./expense/ExpenseContainer";
 import RefuelingContainer from "./refueling/RefuelingContainer";
+import DashboardContainer from "./dashboard/DashboardContainer";
 
 export {
   IntroContainer,
@@ -38,4 +39,5 @@ export {
   MoreOptionsContainer,
   ExpenseContainer,
   RefuelingContainer,
+  DashboardContainer,
 };
